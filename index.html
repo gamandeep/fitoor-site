@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fitoor — Turn any workout you find into a workout you can do</title>
+<style>
+  :root {
+    --core-900: #0D0F12;
+    --ember: #FF5A36;
+    --ion-blue: #4D8DFF;
+    --text-secondary: #9DA3AD;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--core-900);
+    color: #F5F5F5;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+  }
+  .mark {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .mark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--ember);
+    border-radius: 9px;
+    transform: rotate(18deg);
+  }
+  h1 {
+    font-size: clamp(28px, 6vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+  p.tagline {
+    color: var(--text-secondary);
+    font-size: 17px;
+    max-width: 420px;
+    margin: 0 0 40px;
+  }
+  .links {
+    display: flex;
+    gap: 24px;
+  }
+  .links a {
+    color: var(--ion-blue);
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(77,141,255,0.35);
+    padding-bottom: 2px;
+  }
+  .links a:hover, .links a:focus-visible {
+    border-bottom-color: var(--ion-blue);
+  }
+  footer {
+    position: absolute;
+    bottom: 24px;
+    color: #5B6270;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+  <div class="mark"></div>
+  <h1>Fitoor</h1>
+  <p class="tagline">Turn any workout you find into a workout you can actually do.</p>
+  <div class="links">
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms of Use</a>
+    <a href="mailto:hello@fitoor.fit">Contact</a>
+  </div>
+  <footer>Fitoor · Almere, Netherlands</footer>
+</body>
+</html>

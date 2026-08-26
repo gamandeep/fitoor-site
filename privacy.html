@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Fitoor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <a href="/" class="wordmark"><span class="dot"></span>Fitoor</a>
+  <nav class="nav-links">
+    <a href="/privacy.html" aria-current="page">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </nav>
+</div>
+<main>
+  <div class="doc-header">
+    <span class="eyebrow">Legal</span>
+    <h1>Privacy Policy</h1>
+    <div class="updated">Last updated August 26, 2026</div>
+  </div>
+  <p>Fitoor ("the app," "we," "us") is operated from Almere, the Netherlands. It is a personal fitness app that helps you turn workouts you find or perform into structured, trackable training sessions. This policy explains what data the app handles, where it goes, and why.</p>
+<p>We designed Fitoor to require no account and to keep as much as possible on your device. This policy is written to reflect that honestly — including the parts where your data does leave your device, and who it goes to.</p>
+<h2>Summary</h2>
+<ul>
+<li>Fitoor does not require an account, login, or sign-up.</li>
+<li>Your workout history, templates, and logged sessions are stored locally on your device.</li>
+<li>When you use an AI-powered feature (Import with AI, Track with AI), the content you submit is sent to our AI processing provider to be interpreted. This is required for the feature to work.</li>
+<li>When you import from a URL, the app may contact the source platform or a processing service to retrieve the content, depending on the source.</li>
+<li>We do not sell your data. We do not use your data for advertising. We do not build an advertising profile of you.</li>
+</ul>
+<h2>Data we do not collect</h2>
+<p>Fitoor has no user accounts. We do not collect your name, email, or any account-linked identifier unless you voluntarily type a name into the Profile screen — which is stored locally on your device only, and is never transmitted to us or to any third party.</p>
+<p>We do not use analytics SDKs that build cross-app advertising profiles, and we do not integrate advertising networks.</p>
+<h2>Data stored locally on your device</h2>
+<p>The following stays on your device and is not transmitted to us:</p>
+<ul>
+<li>Saved workout templates (name, exercises, sets, reps, weight, notes)</li>
+<li>Workout session history (what you actually logged during training)</li>
+<li>Your Profile name and weight-unit preference (kg/lbs)</li>
+<li>The seeded exercise reference catalog</li>
+</ul>
+<p>If you delete the app or use the "Reset local data" option in Profile, this data is permanently removed from your device. We do not retain a copy, because we never had one.</p>
+<h2>Data sent to third parties for AI processing and import</h2>
+<p>Certain features require sending content off your device so it can be interpreted. This only happens when you actively use one of these features — not in the background, and not continuously.</p>
+<h3>OpenAI</h3>
+<p>When you use <strong>Import with AI</strong> or <strong>Track with AI</strong>, the workout text, description, or image you provide is sent to OpenAI's API to extract and structure workout information (exercise names, sets, reps, weight, and similar). This is also used for AI exercise matching — proposing the correct canonical exercise name for what you described.</p>
+<ul>
+<li>What's sent: the text, image, or content you submit for import; text you type while logging a set with Track with AI.</li>
+<li>Why: this is the core mechanism that turns unstructured input into a structured workout.</li>
+<li>OpenAI processes this data under its own API data-use terms, which (at the time of writing) do not use API-submitted content to train their models by default. We encourage you to review <a href="https://openai.com/policies/">OpenAI's API privacy policy</a> for current details, as their terms may change independently of this policy.</li>
+</ul>
+<h3>YouTube Data API</h3>
+<p>When you import a YouTube URL, Fitoor uses the YouTube Data API to retrieve public video information (such as the video description) that may contain workout content.</p>
+<ul>
+<li>What's sent: the video URL/ID you provide.</li>
+<li>Why: to extract publicly available workout content from the video's description.</li>
+<li>This use is subject to the <a href="https://www.youtube.com/t/terms">YouTube API Services Terms of Service</a> and <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
+</ul>
+<h3>YouTube transcript retrieval (open-source library)</h3>
+<p>If a video's description doesn't contain enough usable workout content, Fitoor falls back to retrieving the video's transcript/captions, using an open-source transcript-fetching library. This connects directly to YouTube's publicly available transcript endpoints from your device.</p>
+<ul>
+<li>What's sent: the video ID, directly from your device to YouTube's transcript service — this does not pass through any Fitoor-operated server.</li>
+<li>Why: transcripts often contain the spoken workout instructions that aren't present in the video description.</li>
+</ul>
+<h3>Supadata</h3>
+<p>When you import a URL from Instagram (or another supported social source), Fitoor uses Supadata to retrieve the publicly available caption/content from that URL.</p>
+<ul>
+<li>What's sent: the URL you provide.</li>
+<li>Why: to extract the workout content (currently caption text; image/carousel content is not yet processed) from a social media post.</li>
+<li>Supadata's handling of this data is subject to <a href="https://supadata.ai/privacy">Supadata's own privacy policy</a>.</li>
+</ul>
+<h2>Images and PDFs you import</h2>
+<p>If you attach a photo, screenshot, or PDF for import, that file is processed to extract workout content as described above. We do not retain a copy of images or PDFs after processing; they are not stored on any server we operate, because Fitoor does not currently operate a server for this purpose — the app communicates directly with the providers listed above from your device.</p>
+<h2>Children's privacy</h2>
+<p>Fitoor is not directed at children under 13 (or the relevant minimum age in your region), and we do not knowingly collect data from children. If you believe a child has used the app in a way that involves data being sent to a third-party provider listed above, contact us at hello@fitoor.fit and we'll assist with next steps.</p>
+<h2>Data retention</h2>
+<p>Because Fitoor doesn't operate its own backend or database, we don't retain copies of your workout data, images, or import content ourselves. Retention of the data sent to OpenAI, Google, and Supadata is governed by their respective policies, linked above.</p>
+<h2>Your rights under the GDPR (EU/EEA users)</h2>
+<p>Fitoor is operated from Almere, the Netherlands, and we comply with the EU General Data Protection Regulation (GDPR) for users in the European Union and European Economic Area.</p>
+<p><strong>Legal basis for processing.</strong> Because Fitoor has no accounts, almost everything you do stays on your device and is never "processed" by us in the GDPR sense. When you actively trigger Import with AI, Track with AI, or a URL/YouTube/social import, we rely on your <strong>consent</strong> (given by the act of using the feature) as the legal basis for the resulting transfer to OpenAI, Google (YouTube), and Supadata. You can withdraw this consent at any time simply by not using those features — core manual tracking works without it.</p>
+<p><strong>Your rights.</strong> Subject to the limitations described below, you have the right to:
+- Access the data concerning you
+- Rectify inaccurate data
+- Erase your data ("right to be forgotten")
+- Restrict or object to processing
+- Data portability
+- Lodge a complaint with your national Data Protection Authority (in the Netherlands, the <a href="https://www.autoriteitpersoonsgegevens.nl/">Autoriteit Persoonsgegevens</a>)</p>
+<p><strong>A practical note on these rights:</strong> because Fitoor stores your workout data locally on your device rather than on a server we control, you already hold direct, immediate control over access, rectification, and erasure — via the app itself and Profile → Reset local data — without needing to contact us. For data that briefly passes through OpenAI, Google, or Supadata during an AI/import request, those providers act as independent processors/controllers for that transient processing; you can also exercise rights directly with them, and we're happy to help route a request if you contact us at the email below.</p>
+<p><strong>International transfers.</strong> OpenAI, Google, and Supadata may process data outside the EU/EEA (for example, in the United States). Each of these providers maintains its own safeguards for international transfers (such as Standard Contractual Clauses); see their respective privacy policies linked above for specifics.</p>
+<h2>Your rights under the CCPA/CPRA (California users)</h2>
+<p>If you are a California resident, the California Consumer Privacy Act (CCPA), as amended by the CPRA, gives you the right to:
+- Know what personal information is collected, used, or disclosed
+- Delete personal information (again, largely self-service via Profile → Reset local data, since we hold no server-side copy)
+- Correct inaccurate personal information
+- Opt out of the sale or sharing of personal information — <strong>we do not sell or share your personal information</strong>, as defined under the CCPA, and never have
+- Non-discrimination for exercising any of these rights</p>
+<p>To exercise a CCPA request, contact us at the email below. We do not currently need to verify your identity for most requests, since we hold no account-linked data server-side to look up in the first place.</p>
+<h2>Your choices</h2>
+<ul>
+<li>You can use Fitoor's core tracking features (creating and logging workouts manually) without ever triggering a network request to a third party — only Import with AI, Track with AI, and related AI/import features send data off-device.</li>
+<li>You can delete all local app data at any time via Profile → Reset local data.</li>
+<li>You can delete the app entirely to remove all locally stored data.</li>
+</ul>
+<h2>Changes to this policy</h2>
+<p>If this policy changes — for example, if we add a new import source or move AI processing behind our own relay server — we'll update the "Last updated" date above. Material changes will be reflected here before they take effect.</p>
+<h2>Contact</h2>
+<p>Questions about this policy or how your data is handled: hello@fitoor.fit</p>
+</main>
+<footer>
+  Fitoor is operated from Almere, the Netherlands. Questions? <a href="mailto:hello@fitoor.fit">hello@fitoor.fit</a>
+</footer>
+</body>
+</html>
