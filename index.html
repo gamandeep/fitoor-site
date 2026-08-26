@@ -7,81 +7,350 @@
 <style>
   :root {
     --core-900: #0D0F12;
+    --surface-800: #171A1F;
+    --elevated-700: #20242A;
     --ember: #FF5A36;
+    --ember-deep: #D94325;
     --ion-blue: #4D8DFF;
+    --text-primary: #F5F5F5;
     --text-secondary: #9DA3AD;
+    --hairline: rgba(245,245,245,0.08);
   }
   * { box-sizing: border-box; }
+  html { background: var(--core-900); }
   body {
     margin: 0;
-    min-height: 100vh;
     background: var(--core-900);
-    color: #F5F5F5;
+    color: var(--text-primary);
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ion-blue);
+    margin-bottom: 14px;
+  }
+  .eyebrow--center { display: block; text-align: center; }
+
+  section { padding: 88px 24px; }
+  section + section { border-top: 1px solid var(--hairline); }
+
+  h2 {
+    font-size: clamp(24px, 3.4vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin: 0 0 12px;
+  }
+  .section-sub {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 15.5px;
+    max-width: 460px;
+    margin: 0 auto 48px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 128px 24px 104px;
+    text-align: center;
+    border-top: none;
+  }
+  .hero-visual {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .dumbbell {
+    position: absolute;
+    top: 46%;
+    right: -70px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transform: translateY(-50%) rotate(-16deg);
+    opacity: 0.4;
+  }
+  .d-weight {
+    width: 92px;
+    height: 92px;
+    border-radius: 22px;
+    background: var(--ember);
+  }
+  .d-bar {
+    width: 108px;
+    height: 22px;
+    border-radius: 11px;
+    background: var(--ember);
+  }
+  .sparkle {
+    position: absolute;
+    background: var(--ion-blue);
+    clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+  }
+  .sparkle--a { width: 34px; height: 34px; top: 16%; left: 8%; opacity: 0.55; transform: rotate(8deg); }
+  .sparkle--b { width: 20px; height: 20px; top: 68%; left: 16%; opacity: 0.4; transform: rotate(-14deg); }
+  .sparkle--c { width: 26px; height: 26px; top: 30%; right: 6%; opacity: 0.5; transform: rotate(20deg); }
+
+  .hero-content { position: relative; z-index: 1; }
+  .hero h1 {
+    font-size: clamp(48px, 10vw, 88px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 18px;
+  }
+  .hero .tagline {
+    color: var(--text-secondary);
+    font-size: 19px;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  /* ---------- How it works ---------- */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 840px;
+    margin: 0 auto;
+  }
+  .card {
+    background: var(--surface-800);
+    border-radius: 20px;
+    padding: 28px 26px;
+    text-align: left;
+  }
+  .card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .card-tag::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: currentColor;
+    clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+    flex: none;
+  }
+  .card--import .card-tag {
+    color: var(--ion-blue);
+    border: 1px solid var(--ion-blue);
+    background: transparent;
+  }
+  .card--track .card-tag {
+    color: var(--core-900);
+    background: var(--ember);
+  }
+  .card p {
+    font-size: 15.5px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  /* ---------- Screenshots ---------- */
+  .frame-row {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .device-frame {
+    width: 190px;
+    height: 400px;
+    border-radius: 32px;
+    border: 2px dashed var(--hairline);
+    background: var(--surface-800);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 8px;
+    padding: 20px;
     text-align: center;
-    padding: 24px;
   }
-  .mark {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 24px;
-    position: relative;
+  .device-frame .screen-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
   }
-  .mark::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--ember);
-    border-radius: 9px;
-    transform: rotate(18deg);
-  }
-  h1 {
-    font-size: clamp(28px, 6vw, 40px);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin: 0 0 12px;
-  }
-  p.tagline {
+  .device-frame .placeholder-note {
+    font-size: 12px;
     color: var(--text-secondary);
-    font-size: 17px;
-    max-width: 420px;
-    margin: 0 0 40px;
   }
-  .links {
+
+  /* ---------- App Store badge ---------- */
+  .store { text-align: center; }
+  .badge-block {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: var(--elevated-700);
+    border: 1px solid var(--hairline);
+    filter: grayscale(1);
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .badge svg { width: 22px; height: 22px; fill: var(--text-primary); flex: none; }
+  .badge-text { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
+  .badge-text span { font-size: 10px; color: var(--text-secondary); }
+  .badge-text strong { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--text-primary); }
+  .coming-soon {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 48px 24px 56px;
+    text-align: center;
+  }
+  footer .links {
     display: flex;
     gap: 24px;
+    justify-content: center;
+    margin-bottom: 16px;
   }
-  .links a {
+  footer .links a {
     color: var(--ion-blue);
     text-decoration: none;
     font-size: 14px;
     border-bottom: 1px solid rgba(77,141,255,0.35);
     padding-bottom: 2px;
   }
-  .links a:hover, .links a:focus-visible {
+  footer .links a:hover, footer .links a:focus-visible {
     border-bottom-color: var(--ion-blue);
   }
-  footer {
-    position: absolute;
-    bottom: 24px;
+  footer .copyright {
     color: #5B6270;
     font-size: 12px;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .cards { grid-template-columns: 1fr; }
+    section { padding: 64px 20px; }
+    .hero { padding: 96px 20px 80px; }
+    .dumbbell { opacity: 0.28; }
   }
 </style>
 </head>
 <body>
-  <div class="mark"></div>
-  <h1>Fitoor</h1>
-  <p class="tagline">Turn any workout you find into a workout you can actually do.</p>
-  <div class="links">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Use</a>
-    <a href="mailto:hello@fitoor.fit">Contact</a>
-  </div>
-  <footer>Fitoor · Almere, Netherlands</footer>
+
+  <section class="hero">
+    <div class="hero-visual" aria-hidden="true">
+      <div class="dumbbell">
+        <span class="d-weight"></span>
+        <span class="d-bar"></span>
+        <span class="d-weight"></span>
+      </div>
+      <span class="sparkle sparkle--a"></span>
+      <span class="sparkle sparkle--b"></span>
+      <span class="sparkle sparkle--c"></span>
+    </div>
+    <div class="hero-content">
+      <span class="eyebrow">AI-native training</span>
+      <h1>Fitoor</h1>
+      <p class="tagline">Turn any workout you find into a workout you can actually do.</p>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <span class="eyebrow eyebrow--center">How it works</span>
+      <h2>Two ways to capture a workout</h2>
+      <p class="section-sub">Found a workout somewhere else, or just want to start moving? Either way, Fitoor turns it into something you can track.</p>
+      <div class="cards">
+        <article class="card card--import">
+          <span class="card-tag">Import with AI</span>
+          <p>Paste text, share a link, or upload a screenshot or PDF — AI extracts the content, parses it into structured data, and matches every exercise into a reusable workout template.</p>
+        </article>
+        <article class="card card--track">
+          <span class="card-tag">Track with AI</span>
+          <p>No template needed — log freely in natural language as you train, and AI structures what you did into a session in real time.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="screens">
+    <div class="wrap">
+      <span class="eyebrow eyebrow--center">Preview</span>
+      <h2>See it in action</h2>
+      <p class="section-sub">Real screenshots are on the way — here's a preview of what's coming.</p>
+      <div class="frame-row">
+        <div class="device-frame">
+          <span class="screen-name">Home</span>
+          <span class="placeholder-note">Screenshot coming soon</span>
+        </div>
+        <div class="device-frame">
+          <span class="screen-name">Import with AI</span>
+          <span class="placeholder-note">Screenshot coming soon</span>
+        </div>
+        <div class="device-frame">
+          <span class="screen-name">Track with AI</span>
+          <span class="placeholder-note">Screenshot coming soon</span>
+        </div>
+        <div class="device-frame">
+          <span class="screen-name">History</span>
+          <span class="placeholder-note">Screenshot coming soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="store">
+    <div class="wrap">
+      <span class="eyebrow eyebrow--center">Availability</span>
+      <h2>Coming to the App Store</h2>
+      <p class="section-sub">Fitoor isn't published yet — here's where you'll be able to get it.</p>
+      <div class="badge-block">
+        <div class="badge" aria-disabled="true" title="Coming soon — not yet available">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.462 2.033-1.386 2.926-.924.893-2.001 1.412-2.94 1.334-.116-1.061.377-2.166 1.278-2.99C14.24.837 15.402.297 16.365 1.43zm4.518 15.876c-.494 1.147-.732 1.66-1.372 2.674-.891 1.412-2.148 3.17-3.708 3.184-1.386.014-1.744-.907-3.626-.893-1.881.014-2.274.907-3.66.893-1.56-.014-2.75-1.6-3.64-3.012C2.05 17.14.847 12.79 2.416 9.9c.784-1.44 2.184-2.354 3.71-2.368 1.36-.014 2.646.907 3.478.907.83 0 2.394-1.12 4.037-.956.688.028 2.618.278 3.858 2.09-.1.063-2.302 1.343-2.279 4.004.028 3.18 2.79 4.24 2.822 4.254-.024.07-.44 1.51-1.46 2.475z"/></svg>
+          <span class="badge-text">
+            <span>Download on the</span>
+            <strong>App Store</strong>
+          </span>
+        </div>
+        <span class="coming-soon">Coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="mailto:hello@fitoor.fit">Contact</a>
+    </div>
+    <p class="copyright">Fitoor · Almere, Netherlands</p>
+  </footer>
+
 </body>
 </html>
