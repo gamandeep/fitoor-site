@@ -28,6 +28,30 @@
   }
   .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
+  .site-header {
+    display: flex;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 24px;
+  }
+  .logo-lockup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-mark {
+    display: block;
+    height: 36px;
+    width: auto;
+  }
+  .logo-text {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+  }
+
   .eyebrow {
     display: inline-block;
     font-size: 11px;
@@ -61,7 +85,7 @@
   .hero {
     position: relative;
     overflow: hidden;
-    padding: 128px 24px 104px;
+    padding: 72px 24px 104px;
     text-align: center;
     border-top: none;
   }
@@ -104,10 +128,11 @@
 
   .hero-content { position: relative; z-index: 1; }
   .hero h1 {
-    font-size: clamp(48px, 10vw, 88px);
+    font-size: clamp(32px, 5vw, 52px);
     font-weight: 800;
-    letter-spacing: -0.03em;
-    margin: 0 0 18px;
+    letter-spacing: -0.02em;
+    max-width: 720px;
+    margin: 0 auto 18px;
   }
   .hero .tagline {
     color: var(--text-secondary);
@@ -130,33 +155,25 @@
     padding: 28px 26px;
     text-align: left;
   }
-  .card-tag {
-    display: inline-flex;
+  .card-heading {
+    display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 6px 14px;
-    border-radius: 999px;
-    margin-bottom: 16px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
   }
-  .card-tag::before {
+  .card-heading::before {
     content: "";
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     background: currentColor;
     clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
     flex: none;
   }
-  .card--import .card-tag {
-    color: var(--ion-blue);
-    border: 1px solid var(--ion-blue);
-    background: transparent;
-  }
-  .card--track .card-tag {
-    color: var(--core-900);
-    background: var(--ember);
-  }
+  .card--import .card-heading { color: var(--ion-blue); }
+  .card--track .card-heading { color: var(--ember); }
   .card p {
     font-size: 15.5px;
     color: var(--text-secondary);
@@ -164,34 +181,37 @@
   }
 
   /* ---------- Screenshots ---------- */
-  .frame-row {
-    display: flex;
-    gap: 18px;
-    justify-content: center;
-    flex-wrap: wrap;
+  .screen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 24px;
+    max-width: 900px;
+    margin: 0 auto;
   }
-  .device-frame {
-    width: 190px;
-    height: 400px;
-    border-radius: 32px;
-    border: 2px dashed var(--hairline);
-    background: var(--surface-800);
+  .screen-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 20px;
     text-align: center;
+    margin: 0;
   }
-  .device-frame .screen-name {
-    font-size: 13px;
-    font-weight: 600;
+  .screen-item figcaption {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
     color: var(--text-primary);
   }
-  .device-frame .placeholder-note {
-    font-size: 12px;
-    color: var(--text-secondary);
+  .screen-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 28px;
+    border: 1px solid var(--hairline);
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,0.6);
+  }
+  @media (max-width: 860px) {
+    .screen-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   /* ---------- App Store badge ---------- */
@@ -206,18 +226,12 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 18px;
-    border-radius: 12px;
-    background: var(--elevated-700);
-    border: 1px solid var(--hairline);
-    filter: grayscale(1);
-    opacity: 0.5;
-    cursor: not-allowed;
+    opacity: 0.55;
   }
-  .badge svg { width: 22px; height: 22px; fill: var(--text-primary); flex: none; }
+  .badge svg { width: 22px; height: 22px; fill: var(--text-secondary); flex: none; }
   .badge-text { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
-  .badge-text span { font-size: 10px; color: var(--text-secondary); }
-  .badge-text strong { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--text-primary); }
+  .badge-text span { font-size: 11px; color: var(--text-secondary); }
+  .badge-text strong { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: var(--text-primary); }
   .coming-soon {
     font-size: 11px;
     font-weight: 600;
@@ -256,12 +270,20 @@
   @media (max-width: 640px) {
     .cards { grid-template-columns: 1fr; }
     section { padding: 64px 20px; }
-    .hero { padding: 96px 20px 80px; }
+    .hero { padding: 56px 20px 80px; }
     .dumbbell { opacity: 0.28; }
+    .screen-grid { grid-template-columns: 1fr; max-width: 320px; }
   }
 </style>
 </head>
 <body>
+
+  <header class="site-header">
+    <div class="logo-lockup">
+      <img class="logo-mark" src="fitoor-logo-mark.png" alt="" width="1254" height="1254">
+      <span class="logo-text">Fitoor</span>
+    </div>
+  </header>
 
   <section class="hero">
     <div class="hero-visual" aria-hidden="true">
@@ -276,8 +298,8 @@
     </div>
     <div class="hero-content">
       <span class="eyebrow">AI-native training</span>
-      <h1>Fitoor</h1>
-      <p class="tagline">Turn any workout you find into a workout you can actually do.</p>
+      <h1>Found a workout? Let AI turn it into a training session.</h1>
+      <p class="tagline">Saw it on YouTube or Instagram? Got a screenshot from a friend? Fitoor's AI turns it into a real workout you can follow at the gym — no retyping, no guesswork.</p>
     </div>
   </section>
 
@@ -288,12 +310,12 @@
       <p class="section-sub">Found a workout somewhere else, or just want to start moving? Either way, Fitoor turns it into something you can track.</p>
       <div class="cards">
         <article class="card card--import">
-          <span class="card-tag">Import with AI</span>
-          <p>Paste text, share a link, or upload a screenshot or PDF — AI extracts the content, parses it into structured data, and matches every exercise into a reusable workout template.</p>
+          <h3 class="card-heading">Bring it in</h3>
+          <p>A YouTube video, an Instagram post, a screenshot, a PDF, or text from anywhere — drop it into Fitoor and AI turns it into a real workout: exercises, sets, reps, and weight. You check it over before it's saved.</p>
         </article>
         <article class="card card--track">
-          <span class="card-tag">Track with AI</span>
-          <p>No template needed — log freely in natural language as you train, and AI structures what you did into a session in real time.</p>
+          <h3 class="card-heading">No plan? Just start.</h3>
+          <p>Show up with nothing written down. Start training and tell Fitoor what you're doing as you go, in plain words — AI keeps track as you train. No forms, no setup.</p>
         </article>
       </div>
     </div>
@@ -303,24 +325,32 @@
     <div class="wrap">
       <span class="eyebrow eyebrow--center">Preview</span>
       <h2>See it in action</h2>
-      <p class="section-sub">Real screenshots are on the way — here's a preview of what's coming.</p>
-      <div class="frame-row">
-        <div class="device-frame">
-          <span class="screen-name">Home</span>
-          <span class="placeholder-note">Screenshot coming soon</span>
-        </div>
-        <div class="device-frame">
-          <span class="screen-name">Import with AI</span>
-          <span class="placeholder-note">Screenshot coming soon</span>
-        </div>
-        <div class="device-frame">
-          <span class="screen-name">Track with AI</span>
-          <span class="placeholder-note">Screenshot coming soon</span>
-        </div>
-        <div class="device-frame">
-          <span class="screen-name">History</span>
-          <span class="placeholder-note">Screenshot coming soon</span>
-        </div>
+      <p class="section-sub">A closer look at how Fitoor works, from import to the last set.</p>
+      <div class="screen-grid">
+        <figure class="screen-item">
+          <figcaption>Two ways in, both powered by AI</figcaption>
+          <img src="screenshot-1.png" alt="Fitoor Home screen with Track with AI and Import with AI buttons" loading="lazy" width="1206" height="2622">
+        </figure>
+        <figure class="screen-item">
+          <figcaption>Paste a link. AI takes it from there.</figcaption>
+          <img src="screenshot-2.png" alt="Import workout screen with a pasted YouTube link ready to import" loading="lazy" width="1206" height="2622">
+        </figure>
+        <figure class="screen-item">
+          <figcaption>Every workout, ready to go</figcaption>
+          <img src="screenshot-3.png" alt="Workout Detail screen showing a Push Day template with six exercises" loading="lazy" width="1206" height="2622">
+        </figure>
+        <figure class="screen-item">
+          <figcaption>Make any workout exactly yours</figcaption>
+          <img src="screenshot-4.png" alt="Edit workout screen with an exercise expanded to show sets, reps, and weight steppers" loading="lazy" width="1206" height="2622">
+        </figure>
+        <figure class="screen-item">
+          <figcaption>Just say it — AI logs the set</figcaption>
+          <img src="screenshot-5.png" alt="Track with AI screen logging sets from natural-language input" loading="lazy" width="1206" height="2622">
+        </figure>
+        <figure class="screen-item">
+          <figcaption>Built for the gym, not the couch</figcaption>
+          <img src="screenshot-6.png" alt="Active Workout screen with a rest timer counting down between sets" loading="lazy" width="1206" height="2622">
+        </figure>
       </div>
     </div>
   </section>
@@ -331,7 +361,7 @@
       <h2>Coming to the App Store</h2>
       <p class="section-sub">Fitoor isn't published yet — here's where you'll be able to get it.</p>
       <div class="badge-block">
-        <div class="badge" aria-disabled="true" title="Coming soon — not yet available">
+        <div class="badge">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.462 2.033-1.386 2.926-.924.893-2.001 1.412-2.94 1.334-.116-1.061.377-2.166 1.278-2.99C14.24.837 15.402.297 16.365 1.43zm4.518 15.876c-.494 1.147-.732 1.66-1.372 2.674-.891 1.412-2.148 3.17-3.708 3.184-1.386.014-1.744-.907-3.626-.893-1.881.014-2.274.907-3.66.893-1.56-.014-2.75-1.6-3.64-3.012C2.05 17.14.847 12.79 2.416 9.9c.784-1.44 2.184-2.354 3.71-2.368 1.36-.014 2.646.907 3.478.907.83 0 2.394-1.12 4.037-.956.688.028 2.618.278 3.858 2.09-.1.063-2.302 1.343-2.279 4.004.028 3.18 2.79 4.24 2.822 4.254-.024.07-.44 1.51-1.46 2.475z"/></svg>
           <span class="badge-text">
             <span>Download on the</span>
