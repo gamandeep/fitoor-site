@@ -244,6 +244,28 @@
     color: var(--text-secondary);
   }
 
+  /* TestFlight — the real, live channel (App Store badge above stays muted) */
+  .tf-block { margin-top: 32px; }
+  .tf-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 26px;
+    border-radius: 12px;
+    background: var(--ember);
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .tf-cta:hover, .tf-cta:focus-visible { background: var(--ember-deep); }
+  .tf-note {
+    margin: 12px 0 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
   /* ---------- Footer ---------- */
   footer {
     padding: 48px 24px 56px;
@@ -373,6 +395,10 @@
           </span>
         </div>
         <span class="coming-soon">Coming soon</span>
+      </div>
+      <div class="tf-block">
+        <a class="tf-cta" href="https://testflight.apple.com/join/bZKVkc3g" target="_blank" rel="noopener noreferrer">Join the TestFlight Beta</a>
+        <p class="tf-note">Try it now, before it's on the App Store.</p>
       </div>
     </div>
   </section>
