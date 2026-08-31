@@ -22,7 +22,7 @@
   <div class="doc-header">
     <span class="eyebrow">Legal</span>
     <h1>Privacy Policy</h1>
-    <div class="updated">Last updated August 26, 2026</div>
+    <div class="updated">Last updated August 31, 2026</div>
   </div>
   <p>Fitoor ("the app," "we," "us") is operated from Almere, the Netherlands. It is a personal fitness app that helps you turn workouts you find or perform into structured, trackable training sessions. This policy explains what data the app handles, where it goes, and why.</p>
 <p>We designed Fitoor to require no account and to keep as much as possible on your device. This policy is written to reflect that honestly — including the parts where your data does leave your device, and who it goes to.</p>
@@ -30,13 +30,15 @@
 <ul>
 <li>Fitoor does not require an account, login, or sign-up.</li>
 <li>Your workout history, templates, and logged sessions are stored locally on your device.</li>
-<li>When you use an AI-powered feature (Import with AI, Track with AI), the content you submit is sent to our AI processing provider to be interpreted. This is required for the feature to work.</li>
-<li>When you import from a URL, the app may contact the source platform or a processing service to retrieve the content, depending on the source.</li>
+<li>When you use an AI-powered feature (Import with AI, Track with AI), the content you submit passes through a lightweight relay server we operate and on to our AI processing provider to be interpreted. The relay's only role is to forward the request without exposing our provider credentials directly in the app — it is not used to store your content.</li>
+<li>When you import a video or social media URL, the app retrieves the publicly available content from that link, also via our relay, using a third-party content-retrieval service.</li>
+<li>You can also send content to Fitoor from other apps using the iOS Share Sheet — this is handled the same way as content you paste or attach directly inside Fitoor.</li>
+<li>We use a privacy-focused analytics service to understand anonymous, aggregate app usage (for example, how many people use a given feature) — this is never linked to you individually. See "Analytics" below.</li>
 <li>We do not sell your data. We do not use your data for advertising. We do not build an advertising profile of you.</li>
 </ul>
 <h2>Data we do not collect</h2>
 <p>Fitoor has no user accounts. We do not collect your name, email, or any account-linked identifier unless you voluntarily type a name into the Profile screen — which is stored locally on your device only, and is never transmitted to us or to any third party.</p>
-<p>We do not use analytics SDKs that build cross-app advertising profiles, and we do not integrate advertising networks.</p>
+<p>We do not use analytics that build cross-app advertising profiles, and we do not integrate advertising networks. We do use a privacy-focused, anonymous analytics service to understand aggregate feature usage — see "Analytics" below for what that actually involves.</p>
 <h2>Data stored locally on your device</h2>
 <p>The following stays on your device and is not transmitted to us:</p>
 <ul>
@@ -46,44 +48,44 @@
 <li>The seeded exercise reference catalog</li>
 </ul>
 <p>If you delete the app or use the "Reset local data" option in Profile, this data is permanently removed from your device. We do not retain a copy, because we never had one.</p>
+<h2>Our relay server</h2>
+<p>Fitoor operates a lightweight relay server (built on Cloudflare Workers) that sits between the app and our third-party AI and content-retrieval providers. Its only purpose is to hold our provider credentials server-side, rather than embedding them in the app itself where they could be extracted — this is a security measure, not a data-collection mechanism.</p>
+<p>The relay forwards your request to the relevant provider (OpenAI or Supadata, described below) and returns the result to your device. It does not maintain a database of your workouts, images, or import content, and is not used to build a profile of you.</p>
 <h2>Data sent to third parties for AI processing and import</h2>
-<p>Certain features require sending content off your device so it can be interpreted. This only happens when you actively use one of these features — not in the background, and not continuously.</p>
+<p>Certain features require sending content off your device so it can be interpreted. This only happens when you actively use one of these features — not in the background, and not continuously. As of this update, these requests are routed through Fitoor's relay server described above, rather than going directly from your device to the provider.</p>
 <h3>OpenAI</h3>
-<p>When you use <strong>Import with AI</strong> or <strong>Track with AI</strong>, the workout text, description, or image you provide is sent to OpenAI's API to extract and structure workout information (exercise names, sets, reps, weight, and similar). This is also used for AI exercise matching — proposing the correct canonical exercise name for what you described.</p>
+<p>When you use <strong>Import with AI</strong> or <strong>Track with AI</strong>, the workout text, description, or image you provide is sent — via our relay — to OpenAI's API to extract and structure workout information (exercise names, sets, reps, weight, and similar). This is also used for AI exercise matching — proposing the correct canonical exercise name for what you described.</p>
 <ul>
-<li>What's sent: the text, image, or content you submit for import; text you type while logging a set with Track with AI.</li>
+<li>What's sent: the text, image(s), or content you submit for import; text you type while logging a set with Track with AI.</li>
 <li>Why: this is the core mechanism that turns unstructured input into a structured workout.</li>
 <li>OpenAI processes this data under its own API data-use terms, which (at the time of writing) do not use API-submitted content to train their models by default. We encourage you to review <a href="https://openai.com/policies/">OpenAI's API privacy policy</a> for current details, as their terms may change independently of this policy.</li>
 </ul>
-<h3>YouTube Data API</h3>
-<p>When you import a YouTube URL, Fitoor uses the YouTube Data API to retrieve public video information (such as the video description) that may contain workout content.</p>
+<h3>Supadata (video and social media imports)</h3>
+<p>When you import a URL — from YouTube, Instagram, TikTok, X, or Facebook — Fitoor uses Supadata, accessed via our relay, to retrieve the publicly available content from that link: the video description, transcript/captions, or post caption, depending on what's needed and available.</p>
 <ul>
-<li>What's sent: the video URL/ID you provide.</li>
-<li>Why: to extract publicly available workout content from the video's description.</li>
-<li>This use is subject to the <a href="https://www.youtube.com/t/terms">YouTube API Services Terms of Service</a> and <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
-</ul>
-<h3>YouTube transcript retrieval (open-source library)</h3>
-<p>If a video's description doesn't contain enough usable workout content, Fitoor falls back to retrieving the video's transcript/captions, using an open-source transcript-fetching library. This connects directly to YouTube's publicly available transcript endpoints from your device.</p>
-<ul>
-<li>What's sent: the video ID, directly from your device to YouTube's transcript service — this does not pass through any Fitoor-operated server.</li>
-<li>Why: transcripts often contain the spoken workout instructions that aren't present in the video description.</li>
-</ul>
-<h3>Supadata</h3>
-<p>When you import a URL from Instagram (or another supported social source), Fitoor uses Supadata to retrieve the publicly available caption/content from that URL.</p>
-<ul>
-<li>What's sent: the URL you provide.</li>
-<li>Why: to extract the workout content (currently caption text; image/carousel content is not yet processed) from a social media post.</li>
+<li>What's sent: the URL you provide, sent from your device to Fitoor's relay, which requests the corresponding content from Supadata on your behalf. The URL does not go directly from your device to Supadata.</li>
+<li>Why: to extract the workout content — spoken instructions, on-screen text, or captions — from the video or post you're importing.</li>
 <li>Supadata's handling of this data is subject to <a href="https://supadata.ai/privacy">Supadata's own privacy policy</a>.</li>
 </ul>
+<h2>Analytics</h2>
+<p>Fitoor uses <a href="https://telemetrydeck.com/">TelemetryDeck</a>, a privacy-focused analytics service, to understand how the app's features are used in aggregate — for example, how often a particular import source is used, or how often a workout session is completed. This helps us find bugs and prioritize what to build next.</p>
+<ul>
+<li>What's sent: anonymous usage events — which feature or screen was used, and non-identifying counts or categories associated with that event (for example, that an import happened and what type of source it came from). We do not send the content of your workouts, imports, or any text you've typed.</li>
+<li>What's not sent: your name, any account identifier (Fitoor has none), advertising identifiers, or anything that ties usage back to you as an individual. TelemetryDeck signals are sent directly from your device to TelemetryDeck — not via Fitoor's relay — and are anonymized using differential privacy techniques designed so they cannot be traced back to a specific person or device.</li>
+<li>TelemetryDeck's handling of this data is subject to <a href="https://telemetrydeck.com/privacy/">TelemetryDeck's own privacy policy</a>.</li>
+</ul>
+<h2>Importing via the Share Sheet</h2>
+<p>Fitoor can also receive content shared directly from other apps using Apple's Share Sheet — for example, sharing a screenshot from Photos, a video link from the YouTube app, or a copied workout from a notes app. This content is handled identically to content you paste or attach inside Fitoor directly, and is processed by the same providers described above, via the same relay.</p>
+<p>Content shared this way is briefly held in an app-group storage area shared between Fitoor and its share extension — accessible only to Fitoor on your own device — until it's picked up by the main app for import. It is not transmitted anywhere as part of this handoff step; transmission to OpenAI or Supadata only happens once you proceed with the import inside the app, same as any other import.</p>
 <h2>Images and PDFs you import</h2>
-<p>If you attach a photo, screenshot, or PDF for import, that file is processed to extract workout content as described above. We do not retain a copy of images or PDFs after processing; they are not stored on any server we operate, because Fitoor does not currently operate a server for this purpose — the app communicates directly with the providers listed above from your device.</p>
+<p>If you attach a photo, screenshot, or PDF for import — whether directly in the app or via the Share Sheet — that file is sent via our relay to OpenAI to extract workout content, as described above. Our relay does not retain a copy of images or PDFs after forwarding them; we do not operate a database or file store for this content.</p>
 <h2>Children's privacy</h2>
 <p>Fitoor is not directed at children under 13 (or the relevant minimum age in your region), and we do not knowingly collect data from children. If you believe a child has used the app in a way that involves data being sent to a third-party provider listed above, contact us at hello@fitoor.fit and we'll assist with next steps.</p>
 <h2>Data retention</h2>
-<p>Because Fitoor doesn't operate its own backend or database, we don't retain copies of your workout data, images, or import content ourselves. Retention of the data sent to OpenAI, Google, and Supadata is governed by their respective policies, linked above.</p>
+<p>Fitoor's relay server does not store copies of your workout data, images, or import content — it forwards requests and returns results without persisting them. We do not operate a database of user content. Retention of the data sent to OpenAI and Supadata is governed by their respective policies, linked above. Anonymous analytics events sent to TelemetryDeck are retained according to TelemetryDeck's own retention policy, and are not linked to an individual in the first place.</p>
 <h2>Your rights under the GDPR (EU/EEA users)</h2>
 <p>Fitoor is operated from Almere, the Netherlands, and we comply with the EU General Data Protection Regulation (GDPR) for users in the European Union and European Economic Area.</p>
-<p><strong>Legal basis for processing.</strong> Because Fitoor has no accounts, almost everything you do stays on your device and is never "processed" by us in the GDPR sense. When you actively trigger Import with AI, Track with AI, or a URL/YouTube/social import, we rely on your <strong>consent</strong> (given by the act of using the feature) as the legal basis for the resulting transfer to OpenAI, Google (YouTube), and Supadata. You can withdraw this consent at any time simply by not using those features — core manual tracking works without it.</p>
+<p><strong>Legal basis for processing.</strong> Because Fitoor has no accounts, almost everything you do stays on your device. When you actively trigger Import with AI, Track with AI, or a URL/social import, we rely on your <strong>consent</strong> (given by the act of using the feature) as the legal basis for the resulting transfer — via our relay — to OpenAI and Supadata. Our relay briefly handles your request in transit as part of providing this feature, but does not store it. You can withdraw this consent at any time simply by not using those features — core manual tracking works without it. For anonymous analytics (TelemetryDeck), we rely on <strong>legitimate interest</strong> in understanding aggregate app usage, since this data is anonymized and not linked to you individually.</p>
 <p><strong>Your rights.</strong> Subject to the limitations described below, you have the right to:
 - Access the data concerning you
 - Rectify inaccurate data
@@ -91,8 +93,8 @@
 - Restrict or object to processing
 - Data portability
 - Lodge a complaint with your national Data Protection Authority (in the Netherlands, the <a href="https://www.autoriteitpersoonsgegevens.nl/">Autoriteit Persoonsgegevens</a>)</p>
-<p><strong>A practical note on these rights:</strong> because Fitoor stores your workout data locally on your device rather than on a server we control, you already hold direct, immediate control over access, rectification, and erasure — via the app itself and Profile → Reset local data — without needing to contact us. For data that briefly passes through OpenAI, Google, or Supadata during an AI/import request, those providers act as independent processors/controllers for that transient processing; you can also exercise rights directly with them, and we're happy to help route a request if you contact us at the email below.</p>
-<p><strong>International transfers.</strong> OpenAI, Google, and Supadata may process data outside the EU/EEA (for example, in the United States). Each of these providers maintains its own safeguards for international transfers (such as Standard Contractual Clauses); see their respective privacy policies linked above for specifics.</p>
+<p><strong>A practical note on these rights:</strong> because Fitoor stores your workout data locally on your device rather than on a server we control, you already hold direct, immediate control over access, rectification, and erasure — via the app itself and Profile → Reset local data — without needing to contact us. For data that briefly passes through our relay to OpenAI or Supadata during an AI/import request, those providers act as independent processors/controllers for that transient processing; you can also exercise rights directly with them, and we're happy to help route a request if you contact us at the email below.</p>
+<p><strong>International transfers.</strong> OpenAI and Supadata may process data outside the EU/EEA (for example, in the United States). Each of these providers maintains its own safeguards for international transfers (such as Standard Contractual Clauses); see their respective privacy policies linked above for specifics.</p>
 <h2>Your rights under the CCPA/CPRA (California users)</h2>
 <p>If you are a California resident, the California Consumer Privacy Act (CCPA), as amended by the CPRA, gives you the right to:
 - Know what personal information is collected, used, or disclosed
@@ -108,7 +110,7 @@
 <li>You can delete the app entirely to remove all locally stored data.</li>
 </ul>
 <h2>Changes to this policy</h2>
-<p>If this policy changes — for example, if we add a new import source or move AI processing behind our own relay server — we'll update the "Last updated" date above. Material changes will be reflected here before they take effect.</p>
+<p>This policy was last updated to reflect that AI and import requests now route through a relay server we operate, that YouTube imports (description and transcript) now go through the same Supadata mechanism as other video/social sources, that Fitoor can now receive shared content from other apps via the iOS Share Sheet, and that we've introduced anonymous analytics via TelemetryDeck. If this policy changes further — for example, if we add a new import source — we'll update the "Last updated" date above. Material changes will be reflected here before they take effect.</p>
 <h2>Contact</h2>
 <p>Questions about this policy or how your data is handled: hello@fitoor.fit</p>
 </main>
