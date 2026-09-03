@@ -230,21 +230,16 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    opacity: 0.55;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
   }
-  .badge svg { width: 22px; height: 22px; fill: var(--text-secondary); flex: none; }
+  .badge:hover, .badge:focus-visible { opacity: 0.8; }
+  .badge svg { width: 22px; height: 22px; fill: var(--text-primary); flex: none; }
   .badge-text { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
   .badge-text span { font-size: 11px; color: var(--text-secondary); }
   .badge-text strong { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: var(--text-primary); }
-  .coming-soon {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-  }
 
-  /* TestFlight — the real, live channel (App Store badge above stays muted) */
+  /* TestFlight — kept alongside the live App Store badge */
   .tf-block { margin-top: 32px; }
   .tf-cta {
     display: inline-flex;
@@ -384,17 +379,16 @@
   <section class="store">
     <div class="wrap">
       <span class="eyebrow eyebrow--center">Availability</span>
-      <h2>Coming to the App Store</h2>
-      <p class="section-sub">Fitoor isn't published yet — here's where you'll be able to get it.</p>
+      <h2>Now on the App Store</h2>
+      <p class="section-sub">Download Fitoor free on the App Store.</p>
       <div class="badge-block">
-        <div class="badge">
+        <a class="badge" href="https://apps.apple.com/us/app/fitoor/id6805904503" target="_blank" rel="noopener noreferrer" aria-label="Download Fitoor on the App Store">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.462 2.033-1.386 2.926-.924.893-2.001 1.412-2.94 1.334-.116-1.061.377-2.166 1.278-2.99C14.24.837 15.402.297 16.365 1.43zm4.518 15.876c-.494 1.147-.732 1.66-1.372 2.674-.891 1.412-2.148 3.17-3.708 3.184-1.386.014-1.744-.907-3.626-.893-1.881.014-2.274.907-3.66.893-1.56-.014-2.75-1.6-3.64-3.012C2.05 17.14.847 12.79 2.416 9.9c.784-1.44 2.184-2.354 3.71-2.368 1.36-.014 2.646.907 3.478.907.83 0 2.394-1.12 4.037-.956.688.028 2.618.278 3.858 2.09-.1.063-2.302 1.343-2.279 4.004.028 3.18 2.79 4.24 2.822 4.254-.024.07-.44 1.51-1.46 2.475z"/></svg>
           <span class="badge-text">
             <span>Download on the</span>
             <strong>App Store</strong>
           </span>
-        </div>
-        <span class="coming-soon">Coming soon</span>
+        </a>
       </div>
       <div class="tf-block">
         <a class="tf-cta" href="https://testflight.apple.com/join/bZKVkc3g" target="_blank" rel="noopener noreferrer">Join the TestFlight Beta</a>
