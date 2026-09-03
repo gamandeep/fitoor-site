@@ -35,6 +35,8 @@
   .site-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 20px;
     max-width: 960px;
     margin: 0 auto;
     padding: 20px 24px;
@@ -54,6 +56,20 @@
     font-weight: 700;
     letter-spacing: -0.01em;
     color: var(--text-primary);
+  }
+
+  /* Official Apple "Download on the App Store" badge — artwork served
+     unmodified by Apple's marketing tools endpoint, never hand-drawn.
+     Apple-required clear space is provided by the header's `gap` (>= 12px)
+     and its horizontal padding, so nothing crowds the badge. */
+  .header-store-badge {
+    display: inline-flex;
+    flex: none;
+  }
+  .header-store-badge img {
+    display: block;
+    height: 36px;
+    width: auto;
   }
 
   .eyebrow {
@@ -295,6 +311,12 @@
     .dumbbell { opacity: 0.28; }
     .screen-grid { grid-template-columns: 1fr; max-width: 320px; }
   }
+
+  @media (max-width: 420px) {
+    .site-header { padding: 16px 16px; gap: 12px; }
+    .header-store-badge img { height: 32px; }
+    .logo-text { font-size: 16px; }
+  }
 </style>
 </head>
 <body>
@@ -304,6 +326,10 @@
       <img class="logo-mark" src="fitoor-logo-mark.png" alt="" width="1254" height="1254">
       <span class="logo-text">Fitoor</span>
     </div>
+    <a class="header-store-badge" href="https://apps.apple.com/us/app/fitoor/id6805904503" target="_blank" rel="noopener noreferrer">
+      <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us"
+           alt="Download on the App Store" width="120" height="40">
+    </a>
   </header>
 
   <section class="hero">
