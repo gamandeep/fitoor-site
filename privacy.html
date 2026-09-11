@@ -22,7 +22,7 @@
   <div class="doc-header">
     <span class="eyebrow">Legal</span>
     <h1>Privacy Policy</h1>
-    <div class="updated">Last updated August 31, 2026</div>
+    <div class="updated">Last updated September 11, 2026</div>
   </div>
   <p>Fitoor ("the app," "we," "us") is operated from Almere, the Netherlands. It is a personal fitness app that helps you turn workouts you find or perform into structured, trackable training sessions. This policy explains what data the app handles, where it goes, and why.</p>
 <p>We designed Fitoor to require no account and to keep as much as possible on your device. This policy is written to reflect that honestly — including the parts where your data does leave your device, and who it goes to.</p>
@@ -44,6 +44,7 @@
 <ul>
 <li>Saved workout templates (name, exercises, sets, reps, weight, notes)</li>
 <li>Workout session history (what you actually logged during training)</li>
+<li>Fito conversation history</li>
 <li>Your Profile name and weight-unit preference (kg/lbs)</li>
 <li>The seeded exercise reference catalog</li>
 </ul>
@@ -67,6 +68,15 @@
 <li>Why: to extract the workout content — spoken instructions, on-screen text, or captions — from the video or post you're importing.</li>
 <li>Supadata's handling of this data is subject to <a href="https://supadata.ai/privacy">Supadata's own privacy policy</a>.</li>
 </ul>
+<h2>Fito</h2>
+<p><strong>Fito</strong> is an AI feature that lets you ask questions about your own training history, grounded in what you've actually logged in Fitoor.</p>
+<ul>
+<li>What's sent: your question, plus the specific data needed to answer it (for example, how many sessions you've logged, or which muscle groups are due for training) — pulled from your local history and sent via our relay to OpenAI. Only the most recent portion of a conversation (the last 24 hours) is sent as context for a new message; older messages stay stored on your device but aren't resent.</li>
+<li>Sent to: OpenAI, via Fitoor's relay, the same as our other AI features.</li>
+<li>Why: to answer your question about your own training data. Fito doesn't request or require any personal or sensitive information to do this.</li>
+<li>Stored locally: your Fito conversations are saved on your device so you can revisit them, the same as your workout history. They are not stored on any server we operate.</li>
+</ul>
+<p><strong>A note on what you choose to share:</strong> Fito is a free-text conversation, so you're free to type anything. If you choose to voluntarily share personal or sensitive information, health details, for example, in a message to Fito, that information is sent to OpenAI as part of your message, the same as any other text you type. We'd recommend not including anything you wouldn't want processed by a third-party AI provider; Fito doesn't need this kind of information to answer questions about your training.</p>
 <h2>Analytics</h2>
 <p>Fitoor uses <a href="https://telemetrydeck.com/">TelemetryDeck</a>, a privacy-focused analytics service, to understand how the app's features are used in aggregate — for example, how often a particular import source is used, or how often a workout session is completed. This helps us find bugs and prioritize what to build next.</p>
 <ul>
@@ -85,7 +95,7 @@
 <p>Fitoor's relay server does not store copies of your workout data, images, or import content — it forwards requests and returns results without persisting them. We do not operate a database of user content. Retention of the data sent to OpenAI and Supadata is governed by their respective policies, linked above. Anonymous analytics events sent to TelemetryDeck are retained according to TelemetryDeck's own retention policy, and are not linked to an individual in the first place.</p>
 <h2>Your rights under the GDPR (EU/EEA users)</h2>
 <p>Fitoor is operated from Almere, the Netherlands, and we comply with the EU General Data Protection Regulation (GDPR) for users in the European Union and European Economic Area.</p>
-<p><strong>Legal basis for processing.</strong> Because Fitoor has no accounts, almost everything you do stays on your device. When you actively trigger Import with AI, Track with AI, or a URL/social import, we rely on your <strong>consent</strong> (given by the act of using the feature) as the legal basis for the resulting transfer — via our relay — to OpenAI and Supadata. Our relay briefly handles your request in transit as part of providing this feature, but does not store it. You can withdraw this consent at any time simply by not using those features — core manual tracking works without it. For anonymous analytics (TelemetryDeck), we rely on <strong>legitimate interest</strong> in understanding aggregate app usage, since this data is anonymized and not linked to you individually.</p>
+<p><strong>Legal basis for processing.</strong> Because Fitoor has no accounts, almost everything you do stays on your device. When you actively trigger Import with AI, Track with AI, Fito, or a URL/social import, we rely on your <strong>consent</strong> (given by the act of using the feature) as the legal basis for the resulting transfer — via our relay — to OpenAI and Supadata. Our relay briefly handles your request in transit as part of providing this feature, but does not store it. You can withdraw this consent at any time simply by not using those features — core manual tracking works without it. For anonymous analytics (TelemetryDeck), we rely on <strong>legitimate interest</strong> in understanding aggregate app usage, since this data is anonymized and not linked to you individually.</p>
 <p><strong>Your rights.</strong> Subject to the limitations described below, you have the right to:
 - Access the data concerning you
 - Rectify inaccurate data
@@ -110,7 +120,7 @@
 <li>You can delete the app entirely to remove all locally stored data.</li>
 </ul>
 <h2>Changes to this policy</h2>
-<p>This policy was last updated to reflect that AI and import requests now route through a relay server we operate, that YouTube imports (description and transcript) now go through the same Supadata mechanism as other video/social sources, that Fitoor can now receive shared content from other apps via the iOS Share Sheet, and that we've introduced anonymous analytics via TelemetryDeck. If this policy changes further — for example, if we add a new import source — we'll update the "Last updated" date above. Material changes will be reflected here before they take effect.</p>
+<p>This policy was last updated to reflect the introduction of Fito, our AI training-history feature. If this policy changes further — for example, if we add a new import source — we'll update the "Last updated" date above. Material changes will be reflected here before they take effect.</p>
 <h2>Contact</h2>
 <p>Questions about this policy or how your data is handled: hello@fitoor.fit</p>
 </main>
