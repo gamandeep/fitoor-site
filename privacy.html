@@ -29,7 +29,7 @@
 <h2>Summary</h2>
 <ul>
 <li>Fitoor does not require an account, login, or sign-up.</li>
-<li>Your workout history, templates, and logged sessions are stored locally on your device.</li>
+<li>Your workout history, templates, and logged sessions are stored locally on your device and, if you turn on iCloud Backup, a copy in your own iCloud Drive.</li>
 <li>When you use an AI-powered feature (Import with AI, Track with AI), the content you submit passes through a lightweight relay server we operate and on to our AI processing provider to be interpreted. The relay's only role is to forward the request without exposing our provider credentials directly in the app — it is not used to store your content.</li>
 <li>When you import a video or social media URL, the app retrieves the publicly available content from that link, also via our relay, using a third-party content-retrieval service.</li>
 <li>You can also send content to Fitoor from other apps using the iOS Share Sheet — this is handled the same way as content you paste or attach directly inside Fitoor.</li>
@@ -37,7 +37,7 @@
 <li>We do not sell your data. We do not use your data for advertising. We do not build an advertising profile of you.</li>
 </ul>
 <h2>Data we do not collect</h2>
-<p>Fitoor has no user accounts. We do not collect your name, email, or any account-linked identifier unless you voluntarily type a name into the Profile screen — which is stored locally on your device only, and is never transmitted to us or to any third party.</p>
+<p>Fitoor has no user accounts. We do not collect your name, email, or any account-linked identifier unless you voluntarily type a name into the Profile screen — which is stored locally on your device and is never transmitted to us. If you turn on iCloud Backup, it is included in the copy saved to your own iCloud Drive, which Apple stores and Fitoor cannot access.</p>
 <p>We do not use analytics that build cross-app advertising profiles, and we do not integrate advertising networks. We do use a privacy-focused, anonymous analytics service to understand aggregate feature usage — see "Analytics" below for what that actually involves.</p>
 <h2>Data stored locally on your device</h2>
 <p>The following stays on your device and is not transmitted to us:</p>
@@ -48,7 +48,8 @@
 <li>Your Profile name and weight-unit preference (kg/lbs)</li>
 <li>The seeded exercise reference catalog</li>
 </ul>
-<p>If you delete the app or use the "Reset local data" option in Profile, this data is permanently removed from your device. We do not retain a copy, because we never had one.</p>
+<p>If you turn on iCloud Backup, a copy is also saved to your own iCloud Drive, which Fitoor cannot access.</p>
+<p>If you delete the app or use the "Reset local data" option in Profile, this data is permanently removed from your device. We do not retain a copy, because we never had one. If you turned on iCloud Backup, your backup stays in your iCloud Drive until you delete it.</p>
 <h2>Our relay server</h2>
 <p>Fitoor operates a lightweight relay server (built on Cloudflare Workers) that sits between the app and our third-party AI and content-retrieval providers. Its only purpose is to hold our provider credentials server-side, rather than embedding them in the app itself where they could be extracted — this is a security measure, not a data-collection mechanism.</p>
 <p>The relay forwards your request to the relevant provider (OpenAI or Supadata, described below) and returns the result to your device. It does not maintain a database of your workouts, images, or import content, and is not used to build a profile of you.</p>
@@ -105,24 +106,24 @@
 - Restrict or object to processing
 - Data portability
 - Lodge a complaint with your national Data Protection Authority (in the Netherlands, the <a href="https://www.autoriteitpersoonsgegevens.nl/">Autoriteit Persoonsgegevens</a>)</p>
-<p><strong>A practical note on these rights:</strong> because Fitoor stores your workout data locally on your device rather than on a server we control, you already hold direct, immediate control over access, rectification, and erasure — via the app itself and Profile → Reset local data — without needing to contact us. For data that briefly passes through our relay to OpenAI or Supadata during an AI/import request, those providers act as independent processors/controllers for that transient processing; you can also exercise rights directly with them, and we're happy to help route a request if you contact us at the email below.</p>
+<p><strong>A practical note on these rights:</strong> because Fitoor stores your workout data locally on your device rather than on a server we control, you already hold direct, immediate control over access, rectification, and erasure — via the app itself and Profile → Reset local data — without needing to contact us. If you turned on iCloud Backup, use Delete iCloud backup in Profile, or remove the Fitoor folder in the Files app, to erase the backup as well. For data that briefly passes through our relay to OpenAI or Supadata during an AI/import request, those providers act as independent processors/controllers for that transient processing; you can also exercise rights directly with them, and we're happy to help route a request if you contact us at the email below.</p>
 <p><strong>International transfers.</strong> OpenAI and Supadata may process data outside the EU/EEA (for example, in the United States). Each of these providers maintains its own safeguards for international transfers (such as Standard Contractual Clauses); see their respective privacy policies linked above for specifics.</p>
 <h2>Your rights under the CCPA/CPRA (California users)</h2>
 <p>If you are a California resident, the California Consumer Privacy Act (CCPA), as amended by the CPRA, gives you the right to:
 - Know what personal information is collected, used, or disclosed
-- Delete personal information (again, largely self-service via Profile → Reset local data, since we hold no server-side copy)
+- Delete personal information (again, largely self-service via Profile → Reset local data, since we hold no server-side copy). If you turned on iCloud Backup, use Delete iCloud backup in Profile, or remove the Fitoor folder in the Files app, to erase the backup as well.
 - Correct inaccurate personal information
 - Opt out of the sale or sharing of personal information — <strong>we do not sell or share your personal information</strong>, as defined under the CCPA, and never have
 - Non-discrimination for exercising any of these rights</p>
 <p>To exercise a CCPA request, contact us at the email below. We do not currently need to verify your identity for most requests, since we hold no account-linked data server-side to look up in the first place.</p>
 <h2>Your choices</h2>
 <ul>
-<li>You can use Fitoor's core tracking features (creating and logging workouts manually) without ever triggering a network request to a third party — only Import with AI, Track with AI, and related AI/import features send data off-device.</li>
+<li>You can use Fitoor's core tracking features (creating and logging workouts manually) without ever triggering a network request to a third party — only Import with AI, Track with AI, and related AI/import features send data off-device. If you turn on iCloud Backup, your device also saves a copy to your own iCloud Drive, which Apple stores and Fitoor itself cannot access.</li>
 <li>You can delete all local app data at any time via Profile → Reset local data.</li>
 <li>You can delete the app entirely to remove all locally stored data.</li>
 </ul>
 <h2>Changes to this policy</h2>
-<p>This policy was last updated to reflect the introduction of Fito, our AI training-history feature. If this policy changes further — for example, if we add a new import source — we'll update the "Last updated" date above. Material changes will be reflected here before they take effect.</p>
+<p>This policy was last updated to reflect the introduction of iCloud Backup, an optional copy of your data saved to your own iCloud Drive. The previous update reflected the introduction of Fito, our AI training-history feature. If this policy changes further — for example, if we add a new import source — we'll update the "Last updated" date above. Material changes will be reflected here before they take effect.</p>
 <h2>Contact</h2>
 <p>Questions about this policy or how your data is handled: hello@fitoor.fit</p>
 </main>
